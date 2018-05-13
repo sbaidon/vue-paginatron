@@ -1,5 +1,5 @@
 {
-  "name": "paginator",
+  "name": "vue-paginatron",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test": "vue-cli-service test",
     "lint": "vue-cli-service lint",
-    "library": "vue-cli-service build --target lib --name paginator ./src/components/Paginator.js"
+    "library":
+      "vue-cli-service build --target lib --name paginator ./src/components/Paginator.js"
   },
   "dependencies": {
     "vue": "^2.5.16"
@@ -25,9 +26,5 @@
     "stylus-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.13"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
 }
