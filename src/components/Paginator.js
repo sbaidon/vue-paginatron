@@ -1,9 +1,6 @@
 export default {
   name: "paginator",
   props: {
-    value: {
-      type: Array
-    },
     itemsPerPage: {
       type: Number,
       default: 10
