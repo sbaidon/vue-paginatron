@@ -8,35 +8,51 @@
 ## How to use
 vue-paginatron exposes several scoped-slot props that you can use to get basic pagination functionality, you have complete control over what is rendered.
 
+```javascript
+import Paginatron from 'vue-paginatron'
+expot default {
+...
+components: { Paginatron }
+... 
+};
+```
 
 ### Props
-	- items (Array): items to be paginated
-	- itemPerPage (Number): number of items per page
-	- rotate (boolean): Wether or not to rotate at the end of the pages
+- items `Array`: items to be paginated
+- itemPerPage `Number`: number of items per page
+- rotate `Boolean`: Wether or not to rotate at the end of the pages
 
 ### Scoped slots props
  - Methods: 
-   - setPage : Sets an specific page
-   - nextPage: Advance to the next page
-   - prevPage: Return to the previous page
+   - `setPage` : Sets an specific page
+   - `nextPage`: Advance to the next page
+   - `prevPage`: Return to the previous page
  - Data:
-   - activeItems: Items shown in the current page
-   - page: Current active page
-   - pages: Total of pages
-   - hasPrevPage:  wether or not the current page is the first one
-   - hasNextPage: wether or not the current page is the last one
+   - `activeItems`: Items shown in the current page
+   - `page`: Current active page
+   -` pages`: Total of pages
+   -` hasPrevPage`:  wether or not the current page is the first one
+   - `hasNextPage`: wether or not the current page is the last one
  - Attribute bindings:
-   - prevButtonAttrs: hides/shows button if there is a previous page
-   - nextButtonAttrs hides/shows button if there is a next page
+   - `prevButtonAttrs`: hides/shows button if there is a previous page
+   - `nextButtonAttrs`: hides/shows button if there is a next page
  - Event bindings:
-   - prevButtonEvents: handles click event to go to the next page
-   - nextButtonEvents: handles click event to go to the previous page
+   - `prevButtonEvents`: handles click event to go to the next page
+   - `nextButtonEvents`: handles click event to go to the previous page
 
 ### Events
 
-`@changed` called every time active items has changed
-`@next`  called when method nextPage is called
-`@previous`  called when method prevPage is called
+`@changed` 
+ - Called every time active items has changed
+ - Payload: `Array` `activeItems` of the current page
+
+`@next`  
+ - Called when method nextPage is called
+ -  Payload: `Object` `{ prev, current }`: object with the previous and current page
+
+`@previous`  
+ - Called when method prevPage is called
+ -  Payload: `{ prev, current }`: object with the previous and current page
 
 
 ### Example
@@ -44,7 +60,7 @@ vue-paginatron exposes several scoped-slot props that you can use to get basic p
 <template>
   <div id="app">
     <h1>App</h1>
-    <paginator @change="updateItems" @next="advanced" @previous="decreased" :items-per-page="5" :items="items">
+    <paginatron @change="updateItems" @next="advanced" @previous="decreased" :items-per-page="5" :items="items">
       <div slot-scope="{ setPage, nextPage, prevPage, page, pages, hasNextPage, hasPrevPage, nextButtonEvents, prevButtonEvents, nextButtonAttrs, prevButtonAttrs }">
         <button v-on="prevButtonEvents" v-bind="prevButtonAttrs" >Prev</button>
         {{ activeItems }}
@@ -53,15 +69,15 @@ vue-paginatron exposes several scoped-slot props that you can use to get basic p
           <p @click="setPage(index)">{{ page }}</p>
         </div>
       </div>
-    </paginator>
+    </paginatron>
   </div>
 </template>
 <script>
-import Paginator from './components/Paginator';
+import Paginatron from 'vue-paginatron';
 
 export default {
   name: 'app',
-  components: { Paginator },
+  components: { Paginatron },
   data() {
     return {
       activeItems: [],

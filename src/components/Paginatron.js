@@ -1,5 +1,5 @@
 export default {
-  name: "paginator",
+  name: "paginatron",
   props: {
     itemsPerPage: {
       type: Number,

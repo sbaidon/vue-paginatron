@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>App</h1>
-    <paginator @change="updateItems" @next="advanced" @previous="decreased" :items-per-page="5" :items="items">
+    <paginatron @change="updateItems" @next="advanced" @previous="decreased" :items-per-page="5" :items="items">
       <div slot-scope="{ setPage, nextPage, prevPage, page, pages, hasNextPage, hasPrevPage, nextButtonEvents, prevButtonEvents, nextButtonAttrs, prevButtonAttrs }">
         <button v-on="prevButtonEvents" v-bind="prevButtonAttrs" >Prev</button>
         {{ activeItems }}
@@ -10,15 +10,15 @@
           <p @click="setPage(index)">{{ page }}</p>
         </div>
       </div>
-    </paginator>
+    </paginatron>
   </div>
 </template>
 <script>
-import Paginator from './components/Paginator';
+import Paginatron from './components/Paginatron';
 
 export default {
   name: 'app',
-  components: { Paginator },
+  components: { Paginatron },
   data() {
     return {
       activeItems: [],
