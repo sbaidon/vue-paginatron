@@ -1,7 +1,7 @@
 {
   "name": "vue-paginatron",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
@@ -26,5 +26,7 @@
     "stylus-loader": "^3.0.1",
     "vue-template-compiler": "^2.5.13"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "module": "dist/paginator.umd.min.js",
+  "main": "dist/paginator.common.js"
 }
