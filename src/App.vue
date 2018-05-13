@@ -1,27 +1,44 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>App</h1>
+    <paginator @change="updateItems" @next="advanced" @previous="decreased" :items-per-page="5" :items="items">
+      <div slot-scope="{ setPage, nextPage, prevPage, page, pages, hasNextPage, hasPrevPage, nextButtonEvents, prevButtonEvents, nextButtonAttrs, prevButtonAttrs }">
+        <button v-on="prevButtonEvents" v-bind="prevButtonAttrs" >Prev</button>
+        {{ activeItems }}
+        <button v-on="nextButtonEvents" >Next</button>
+        <div v-for="(page, index) in pages" :key="index">
+          <p @click="setPage(index)">{{ page }}</p>
+        </div>
+      </div>
+    </paginator>
   </div>
 </template>
-
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Paginator from './components/Paginator';
 
 export default {
-  name: "app",
-  components: {
-    HelloWorld
-  }
+  name: 'app',
+  components: { Paginator },
+  data() {
+    return {
+      activeItems: [],
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    };
+  },
+  methods: {
+    updateItems(activeItems) {
+      this.activeItems = activeItems;
+    },
+    decreased({ prev, current }) {
+      console.log(prev, current);
+    },
+    advanced({ activeItems, prev, current }) {
+      console.log(prev, current);
+    },
+  },
 };
 </script>
 
-<style lang="stylus">
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+<style>
+
 </style>
