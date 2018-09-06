@@ -14,15 +14,15 @@
   </div>
 </template>
 <script>
-import Paginatron from './components/Paginatron';
+import Paginatron from "./components/Paginatron";
 
 export default {
-  name: 'app',
+  name: "app",
   components: { Paginatron },
   data() {
     return {
       activeItems: [],
-      items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      items: [1, 2, 3, 4, 5, 6, 7, 8, 9]
     };
   },
   methods: {
@@ -34,11 +34,10 @@ export default {
     },
     advanced({ activeItems, prev, current }) {
       console.log(prev, current);
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style>
-
 </style>
