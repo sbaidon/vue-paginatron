@@ -54,6 +54,10 @@ components: { Paginatron }
  - Called when method prevPage is called
  -  Payload: `{ prev, current }`: object with the previous and current page
 
+`@setPage`
+ - Called every time active page has changed
+ - Payload: `Number` active page
+
 
 ### Example
 ```html
