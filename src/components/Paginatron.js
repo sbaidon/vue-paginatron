@@ -79,7 +79,7 @@ export default {
       if (page > this.pages - 1 || page < 0) {
         throw new Error("Page is not valid");
       }
-      this.emit("setPage", page);
+      this.$emit("setPage", page);
       this.page = page;
     },
     nextPage() {
