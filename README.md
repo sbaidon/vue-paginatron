@@ -10,7 +10,7 @@ vue-paginatron exposes several scoped-slot props that you can use to get basic p
 
 ```javascript
 import Paginatron from 'vue-paginatron'
-expot default {
+export default {
 ...
 components: { Paginatron }
 ... 
